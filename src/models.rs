@@ -290,7 +290,7 @@ async fn get_authors(pool: web::Data<DbPool>) -> Result<HttpResponse, Error>{
 }
 
 
-#[get("/v2")]
+#[get("/api/v2")]
 async fn get_authors2(pool: web::Data<DbPool>) -> Result<HttpResponse, Error>{
     
     let res = web::block(move || {
@@ -303,7 +303,7 @@ async fn get_authors2(pool: web::Data<DbPool>) -> Result<HttpResponse, Error>{
     Ok(HttpResponse::Ok().json(res))
 }
 
-#[get("/v3")]
+#[get("/api/v3")]
 async fn get_authors3(pool: web::Data<DbPool>) -> Result<HttpResponse, Error>{
     
     let res = web::block(move || {
