@@ -57,7 +57,7 @@ async fn main() -> std::io::Result<()> {
                     
             )
             .service(
-                web::scope("/phone")
+                web::scope("/api")
                 .service(get_phones_query)
 
             )
