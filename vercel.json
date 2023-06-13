@@ -1,5 +1,9 @@
 {
   "outputDirectory": "public",
-  
+  "functions": {
+    "src/*.rs": {
+      "runtime": "vercel-rust@4.0.2"
+    }
+  },
   "routes": [{ "src": "/(.*)", "dest": "/phone/phone" }]
 }

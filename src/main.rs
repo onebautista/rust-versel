@@ -10,7 +10,7 @@ use diesel::r2d2::Pool;
 use diesel::r2d2::{self, ConnectionManager};
 use actix_web::middleware::Logger;
 use actix_web::{web, App, HttpServer};
-
+use vercel_runtime::{Body, Error, Request, Response, StatusCode};
 
 pub type DbPool = r2d2::Pool<ConnectionManager<MysqlConnection>>;
 
@@ -30,6 +30,12 @@ async fn main() -> std::io::Result<()> {
     let host = env::var("HOST").expect("HOST must be setted");
     let port = env::var("PORT").expect("PORT must be setted");
 
+    pub async fn handler(_req: Request) -> Result<Response<Body>, Error> {
+        Ok(Response::builder()
+            .status(StatusCode::OK)
+            .header("Content-Type", "application/json")
+            .body(Body::Text("Route is /api/foo".into()))?)
+    }
   
 
     let connection = ConnectionManager::<MysqlConnection>::new(database_url);
