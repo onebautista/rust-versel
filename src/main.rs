@@ -1,3 +1,4 @@
+/*
 #[macro_use]
 extern crate diesel;
 extern crate dotenv;
@@ -18,7 +19,7 @@ pub mod models;
 pub mod schema;
 pub mod phone;
 
-use models::*;
+use models::*;  
 
 
 
@@ -74,4 +75,10 @@ async fn main() -> std::io::Result<()> {
     .bind(format!("{}:{}", host, port))?
     .run()
     .await
+} */
+
+
+fn main() {
+    println!("hello xD");
 }
+
